@@ -38,20 +38,35 @@ export class News extends Component {
       loading:false
     }
   }
+
+  async componentDidMount(){
+    console.log("cdm")
+    let url="https://newsapi.org/v2/top-headlines?country=in&apiKey=294854925da0498795661fcf91443ddc&page=1";
+    let data = await fetch(url);
+    let parsedDate = await data.json();
+    this.setState({
+       articles:parsedDate.articles
+    })
+
+  }
   render() {
+    console.log("render")
     return (
       <div className='container my-3'>
-        <h3 className='text-center'>NewsMonkey - Top Headlines</h3>
+        <h1 className='text-center'>NewsMonkey - Top Headlines</h1>
 
         <div className="row">
           {this.state.articles.map((element)=>{
             return<div className="col-md-4 " key={element.url}>
-        <NewsItem title={element.title.slice(0,55)} description={element.description.slice(0,88)} imgUrl={element.urlToImage} newsUrl={element.url} />
+        <NewsItem title={element.title?element.title.slice(0,55):""} description={element.description?element.description.slice(0,88):""} 
+        imgUrl={element.urlToImage?element.urlToImage:"https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"} newsUrl={element.url} />
         </div>
           })}
-          
-       
-        
+        </div>
+        <div className='container'>
+<div className="btn btn-dark">Previous</div>
+<div className="btn btn-dark">Next</div>
+
         </div>
       </div>
     )
