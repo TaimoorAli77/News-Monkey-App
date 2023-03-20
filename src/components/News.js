@@ -72,9 +72,10 @@ this.setState({
         <div className="row">
           {!this.state.loading && this.state.articles.map((element)=>{
             return<div className="col-md-4 " key={element.url}>
-        <NewsItem title={element.title?element.title.slice(0,55):""} description={element.description?element.description.slice(0,88):""} 
+        <NewsItem title={element.title} description={element.description} author={element.author?element.author:"Unknown"} date={element.publishedAt} source={element.source.name}
         imgUrl={element.urlToImage?element.urlToImage:"https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"} newsUrl={element.url} />
         </div>
+        // title={element.title?element.title.slice(0,55):""}
           })}
         </div>
         <div className='container d-flex justify-content-between '>
