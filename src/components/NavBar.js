@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class NavBar extends Component {
+const  NavBar = ()=> {
   
 
-  render() {
+  
     return (
       <div>
         <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -28,6 +28,6 @@ export class NavBar extends Component {
             </nav>
      </div>  )
   }
-}
+
 
 export default NavBar
