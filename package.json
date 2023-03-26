@@ -17,6 +17,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "react-router-dom": "^6.0.1"
   }
 }
